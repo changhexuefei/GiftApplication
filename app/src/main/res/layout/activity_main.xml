@@ -4,63 +4,75 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <FrameLayout
-        android:layout_above="@+id/navigation_bar"
         android:id="@+id/frameList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation_bar">
     </FrameLayout>
+
     <View
-        android:layout_above="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_above="@+id/navigation_bar"
         android:background="@color/colorAccent"
         />
 
     <RadioGroup
-        android:layout_alignParentBottom="true"
-        android:padding="4dp"
-        android:orientation="horizontal"
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
         <RadioButton
-            android:drawableTop="@drawable/home"
-            android:gravity="center"
-            android:button="@null"
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="首页"/>
+            android:button="@null"
+            android:drawableTop="@drawable/home"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/home"
+            android:textColor="@color/font_color"/>
 
         <RadioButton
-            android:drawableTop="@drawable/gift"
-            android:gravity="center"
-            android:button="@null"
             android:id="@+id/gift"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="榜单"/>
-        <RadioButton
-            android:drawableTop="@drawable/category"
-            android:gravity="center"
             android:button="@null"
+            android:drawableTop="@drawable/gift"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/gift"
+            android:textColor="@color/font_color"/>
+
+        <RadioButton
             android:id="@+id/category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="分类"/>
-        <RadioButton
-            android:drawableTop="@drawable/profile"
-            android:gravity="center"
             android:button="@null"
+            android:drawableTop="@drawable/category"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/category"
+            android:textColor="@color/font_color"/>
+
+        <RadioButton
             android:id="@+id/profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="我的"/>
+            android:button="@null"
+            android:drawableTop="@drawable/profile"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/profile"
+            android:textColor="@color/font_color"/>
     </RadioGroup>
 </RelativeLayout>
