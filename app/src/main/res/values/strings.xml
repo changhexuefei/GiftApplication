@@ -8,4 +8,18 @@
     <string name="category">分类</string>
     <string name="profile">我的</string>
     <string name="search_hint">搜索单品、攻略</string>
+    <string name="hand_pick">精选</string>
+    <string name="girlfriend">送女友</string>
+    <string name="cross_border_shopping">海淘</string>
+    <string name="create_life">创意生活</string>
+    <string name="technology">科技范</string>
+    <string name="send_parents">送爸妈</string>
+    <string name="send_gay_friends">送基友</string>
+    <string name="send_girlfriends">送闺蜜</string>
+    <string name="send_colleagues">送同事</string>
+    <string name="send_baby">送宝贝</string>
+    <string name="graphic_sense">设计感</string>
+    <string name="art_style">文艺风</string>
+    <string name="whimsy">奇葩搞怪</string>
+    <string name="moe_of_da">萌萌达</string>
 </resources>
