@@ -54,4 +54,6 @@ dependencies {
     compile files('libs/androideventbus-1.0.5.jar')
     compile 'com.android.support:support-v4:25.1.0'
     compile 'com.android.support:design:25.1.0'
+    compile 'com.jiang.android.viewpagertransformer:transformer:1.0.1'
+
 }
