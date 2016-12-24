@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
+import com.jiang.android.scalabletabindicator.library.ScalableTabIndicator;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-//    private ScalableTabIndicator mScalableTabIndicator;
+    private ScalableTabIndicator mScalableTabIndicator;
     private ViewPager mPager;
     private ViewPagerAdapter mAdapter;
 
@@ -25,13 +26,14 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-//        mScalableTabIndicator = view.findViewById(R.id.tabindicator);
+        mScalableTabIndicator = (ScalableTabIndicator) view.findViewById(R.id.tabindicator);
+        mPager = (ViewPager) view.findViewById(R.id.sort_fragment);
+        mScalableTabIndicator.setScrollable(true);
         return view;
     }
 
@@ -42,7 +44,6 @@ public class HomeFragment extends Fragment {
         }
 
         public Fragment getItem(int num) {
-
             Bundle bundle = new Bundle();
             bundle.putInt("position", num);
 //            SimpleFragment fg=new SimpleFragment();
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment {
         @Override
         public int getCount() {
             // 增加indicator时需要在这里更改个数
-            return 6;
+            return 14;
         }
 
         @Override
