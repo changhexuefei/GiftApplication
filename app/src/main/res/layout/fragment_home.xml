@@ -38,11 +38,7 @@
             android:src="@mipmap/icon_gift_send_remind"/>
 
     </LinearLayout>
-    <com.jiang.android.scalabletabindicator.library.ScalableTabIndicator
-        android:layout_marginTop="6dp"
-        android:id="@+id/tabindicator"
-        android:layout_height="40dp"
-        android:layout_width="match_parent"/>
+
 
 
     <android.support.v4.view.ViewPager
