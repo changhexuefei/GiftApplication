@@ -37,13 +37,13 @@ public class MyBaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
             Glide.with(MyApp.getContext()).load(mGirlFriends.get(position)
                     .getAuthor().getAvatar_url()).into(itemViewHolder.iv_author_icon);
-            Glide.with(MyApp.getContext()).load(mGirlFriends.get(position).getCover_image_url());
+            Glide.with(MyApp.getContext()).load(mGirlFriends.get(position).getCover_image_url()).into(itemViewHolder.cover_image_url);
             itemViewHolder.tv_nickname.setText(mGirlFriends.get(position).getAuthor().getNickname());
             itemViewHolder.tv_introduction.setText(mGirlFriends.get(position).getAuthor().getIntroduction());
-            itemViewHolder.tv_column_title.setText(mGirlFriends.get(position).getTitle());
+            itemViewHolder.tv_column_title.setText(mGirlFriends.get(position).getColumn().getTitle());
             itemViewHolder.tv_content_introduction.setText(mGirlFriends.get(position).getIntroduction());
-            itemViewHolder.tv_title.setText(mGirlFriends.get(position).getColumn().getTitle());
-            itemViewHolder.tv_likes_count.setText(mGirlFriends.get(position).getLikes_count());
+            itemViewHolder.tv_title.setText(mGirlFriends.get(position).getTitle());
+            itemViewHolder.tv_likes_count.setText(String.valueOf(mGirlFriends.get(position).getLikes_count()));
         }
 
 

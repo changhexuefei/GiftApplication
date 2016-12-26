@@ -15,7 +15,6 @@ import com.example.gao.giftapplication.adapter.MyBaseAdapter;
 import com.example.gao.giftapplication.bean.GirlFriend;
 import com.example.gao.giftapplication.http.HttpUtils;
 import com.example.gao.giftapplication.http.response.JsonResponseHandler;
-import com.example.gao.giftapplication.utils.JsonUtils;
 import com.example.gao.giftapplication.utils.LogUtils;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
@@ -33,7 +32,7 @@ import okhttp3.Call;
  */
 public class GirlFriendFragment extends Fragment {
 
-    private String url = "http://api.liwushuo.com/v2/channels/10/items_v2?gender=1&generation=1&order_by=now&limit=20&offset=0";
+    private String url = "http://api.liwushuo.com/v2/channels/10/items_v2";
     private List<GirlFriend.DataBean.ItemsBean> mItemsBeen;
     private MyBaseAdapter mMyBaseAdapter;
 
@@ -63,12 +62,16 @@ public class GirlFriendFragment extends Fragment {
             public void onSuccess(String response, int id) {
                 LogUtils.e(response);
                 Log.d("response", response);
-                if (JsonUtils.isSuccess(response)) {
 
+
+                    Log.d("343434","aaaaaa");
                     mItemsBeen = new ArrayList<GirlFriend.DataBean.ItemsBean>();
+                    Log.d("444444","dddd");
                     Gson gson = new Gson();
+                    Log.d("55555","cccc");
                     GirlFriend girlFriend = gson.fromJson(response, GirlFriend.class);
-                    Log.d("33333", girlFriend + "");
+                    Log.d("666","bbbb");
+//                    Log.d("33333", girlFriend + "");
                     mItemsBeen = girlFriend.getData().getItems();
 
                     mMyBaseAdapter.setGirlFriends(mItemsBeen);
@@ -78,11 +81,6 @@ public class GirlFriendFragment extends Fragment {
                     mGirlfriendFragment.setItemAnimator(new DefaultItemAnimator());
                     LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mMyBaseAdapter);
                     mGirlfriendFragment.setAdapter(adapter);
-
-                } else {
-
-
-                }
 
             }
         });

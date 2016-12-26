@@ -3,6 +3,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
               tools:context="com.example.gao.giftapplication.view.HomeFragment">
 
     <LinearLayout
@@ -19,8 +21,8 @@
 
         <EditText
             android:id="@+id/search_estate_bar"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_width="220dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="16dp"
             android:background="@drawable/search_box_shape"
             android:gravity="center"
