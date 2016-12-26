@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private ProfileFragment pf;
     private long mExitTime; //退出时间
 
-    private static final int CF = 1;
-    private static final int GF = 2;
-    private static final int HF = 3;
-    private static final int PF = 4;
+    private static final int CF = 0;
+    private static final int GF = 1;
+    private static final int HF = 2;
+    private static final int PF = 3;
 
 
     @Override
