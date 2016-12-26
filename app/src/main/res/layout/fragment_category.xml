@@ -3,10 +3,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:layout_gravity="center"
               tools:context="com.example.gao.giftapplication.view.CategoryFragment">
 
 
     <com.astuetz.PagerSlidingTabStrip
+
+        android:layout_gravity="center_horizontal"
         android:id="@+id/category_tabs"
         android:layout_width="match_parent"
         android:layout_height="48dp">

@@ -46,12 +46,11 @@ public class GiftFragment extends Fragment {
         ViewPager pager = (ViewPager) view.findViewById(R.id.gift_view_pager);
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.gift_tabs);
         pager.setOffscreenPageLimit(0);//设置ViewPager的缓存界面数,默认缓存为2
-//
         pager.setAdapter(new MyGiftAdapter(getChildFragmentManager()));
+        pager.setCurrentItem(0);
         tabs.setViewPager(pager);
         setTabsValue();
         return view;
-
     }
 
     private void setTabsValue() {
@@ -59,19 +58,21 @@ public class GiftFragment extends Fragment {
         tabs.setShouldExpand(true);
         // 设置Tab的分割线是透明的
         tabs.setDividerColor(Color.TRANSPARENT);
+        //设置Tab底部线的颜色是透明的
+        tabs.setUnderlineColor(Color.TRANSPARENT);
         // 设置Tab底部线的高度
         tabs.setUnderlineHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, dm));
         // 设置Tab Indicator的高度
         tabs.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, dm));
         // 设置Tab标题文字的大小
-        tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, dm));
+        tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, dm));
         // 设置Tab Indicator的颜色
         tabs.setIndicatorColor(Color.parseColor("#d83737"));//#d83737   #d83737(绿)
+
         // 设置选中Tab文字的颜色 (这是我自定义的一个方法)
 //        tabs.setSelectedTextColor(Color.parseColor("#ffffff"));
         // 取消点击Tab时的背景色
         tabs.setTabBackground(0);
-
     }
 
     public class MyGiftAdapter extends FragmentPagerAdapter {

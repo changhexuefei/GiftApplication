@@ -4,7 +4,7 @@
              android:layout_height="match_parent"
              tools:context="com.example.gao.giftapplication.fragment.GirlFriendFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <com.github.jdsjlzx.recyclerview.LRecyclerView
         android:id="@+id/girlfriendFragment"
         android:layout_width="match_parent"
