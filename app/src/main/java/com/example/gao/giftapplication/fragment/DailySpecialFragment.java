@@ -1,4 +1,4 @@
-package com.example.gao.giftapplication.view;
+package com.example.gao.giftapplication.fragment;
 
 
 import android.os.Bundle;
@@ -12,12 +12,10 @@ import com.example.gao.giftapplication.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoryFragment extends Fragment {
+public class DailySpecialFragment extends Fragment {
 
 
-    private View mView;
-
-    public CategoryFragment() {
+    public DailySpecialFragment() {
         // Required empty public constructor
     }
 
@@ -26,8 +24,7 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_category, container, false);
-        return mView;
+        return inflater.inflate(R.layout.fragment_daily_special, container, false);
     }
 
 }
