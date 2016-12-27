@@ -46,7 +46,7 @@ public class GirlFriendFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_girl_friend, container, false);
         ButterKnife.bind(this, mView);
-        mMyBaseAdapter = new MyBaseAdapter();
+
 
         HttpUtils.get(url, new JsonResponseHandler() {
             @Override
@@ -61,7 +61,7 @@ public class GirlFriendFragment extends Fragment {
                 Gson gson = new Gson();
                 GirlFriend girlFriend = gson.fromJson(response, GirlFriend.class);
                 mItemsBeen = girlFriend.getData().getItems();
-                mMyBaseAdapter.setGirlFriends(mItemsBeen);
+                mMyBaseAdapter = new MyBaseAdapter(getContext(),R.layout.item,mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);
