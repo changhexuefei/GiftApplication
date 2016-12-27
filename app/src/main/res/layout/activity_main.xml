@@ -22,13 +22,13 @@
     <RadioGroup
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:padding="4dp">
 
         <RadioButton
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -36,12 +36,12 @@
             android:button="@null"
             android:drawableTop="@drawable/home"
             android:gravity="center"
-            android:padding="8dp"
+
             android:text="@string/home"
             android:textColor="@color/font_color"/>
 
         <RadioButton
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:id="@+id/gift"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -49,12 +49,12 @@
             android:button="@null"
             android:drawableTop="@drawable/gift"
             android:gravity="center"
-            android:padding="8dp"
+
             android:text="@string/gift"
             android:textColor="@color/font_color"/>
 
         <RadioButton
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:id="@+id/category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -62,12 +62,12 @@
             android:button="@null"
             android:drawableTop="@drawable/category"
             android:gravity="center"
-            android:padding="8dp"
+
             android:text="@string/category"
             android:textColor="@color/font_color"/>
 
         <RadioButton
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:id="@+id/profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -75,7 +75,7 @@
             android:button="@null"
             android:drawableTop="@drawable/profile"
             android:gravity="center"
-            android:padding="8dp"
+
             android:text="@string/profile"
             android:textColor="@color/font_color"/>
     </RadioGroup>

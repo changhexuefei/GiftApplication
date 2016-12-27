@@ -27,9 +27,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class GirlFriendFragment extends Fragment {
 
     private String url = "http://api.liwushuo.com/v2/channels/10/items_v2";
@@ -44,11 +41,9 @@ public class GirlFriendFragment extends Fragment {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_girl_friend, container, false);
         ButterKnife.bind(this, mView);
         mMyBaseAdapter = new MyBaseAdapter();
@@ -62,26 +57,17 @@ public class GirlFriendFragment extends Fragment {
             public void onSuccess(String response, int id) {
                 LogUtils.e(response);
                 Log.d("response", response);
-
-
-                    Log.d("343434","aaaaaa");
-                    mItemsBeen = new ArrayList<GirlFriend.DataBean.ItemsBean>();
-                    Log.d("444444","dddd");
-                    Gson gson = new Gson();
-                    Log.d("55555","cccc");
-                    GirlFriend girlFriend = gson.fromJson(response, GirlFriend.class);
-                    Log.d("666","bbbb");
-//                    Log.d("33333", girlFriend + "");
-                    mItemsBeen = girlFriend.getData().getItems();
-
-                    mMyBaseAdapter.setGirlFriends(mItemsBeen);
-                    final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                    mGirlfriendFragment.setLayoutManager(manager);
-                    mGirlfriendFragment.setHasFixedSize(true);
-                    mGirlfriendFragment.setItemAnimator(new DefaultItemAnimator());
-                    LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mMyBaseAdapter);
-                    mGirlfriendFragment.setAdapter(adapter);
-
+                mItemsBeen = new ArrayList<GirlFriend.DataBean.ItemsBean>();
+                Gson gson = new Gson();
+                GirlFriend girlFriend = gson.fromJson(response, GirlFriend.class);
+                mItemsBeen = girlFriend.getData().getItems();
+                mMyBaseAdapter.setGirlFriends(mItemsBeen);
+                final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                mGirlfriendFragment.setLayoutManager(manager);
+                mGirlfriendFragment.setHasFixedSize(true);
+                mGirlfriendFragment.setItemAnimator(new DefaultItemAnimator());
+                LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mMyBaseAdapter);
+                mGirlfriendFragment.setAdapter(adapter);
             }
         });
         return mView;
