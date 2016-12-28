@@ -75,8 +75,8 @@ public class SelectionFragment extends Fragment {
                 Selection selection = gson.fromJson(response, Selection.class);
                 LogUtils.d("22222:" + selection);
                 mItemsBeen = selection.getData().getItems();
-                mAdapter = new SelectionAdapter();
-                mAdapter.setItemsBeen(mItemsBeen);
+                mAdapter = new SelectionAdapter(getContext(),R.layout.item,mItemsBeen);
+
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mSelectionLR.setLayoutManager(manager);
                 mSelectionLR.setHasFixedSize(true);
