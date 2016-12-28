@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
         controlIconSize();
 
         showFragment(HF);
@@ -92,28 +94,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //按下的如果是BACK，同时没有重复
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                mExitTime = System.currentTimeMillis();
-            } else {
-//                SysApplication.getInstance().exit();
-                finish();
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        System.exit(0);
-    }
 
     public void showFragment(int index) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -169,11 +149,34 @@ public class MainActivity extends AppCompatActivity {
             ft.hide(pf);
         }
     }
-
+    //将RadioButton中的图片转化为规定大小的方法
     public void initDrawable(RadioButton v) {
         Drawable drawable = v.getCompoundDrawables()[1];
         drawable.setBounds(0, 0, DensityUtil.dip2px(24), DensityUtil.dip2px(24));
         v.setCompoundDrawables(null, drawable, null, null);
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //按下的如果是BACK，同时没有重复
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                mExitTime = System.currentTimeMillis();
+            } else {
+//                SysApplication.getInstance().exit();
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.exit(0);
+    }
+
 
 }

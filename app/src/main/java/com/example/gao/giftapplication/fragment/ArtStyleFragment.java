@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.ArtStyleAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.ArtStyle;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -61,7 +62,7 @@ public class ArtStyleFragment extends Fragment {
                 Gson gson = new Gson();
                 ArtStyle artStyle = gson.fromJson(response, ArtStyle.class);
                 mItemsBeen = artStyle.getData().getItems();
-                mAdapter = new ArtStyleAdapter(getContext(), R.layout.item, mItemsBeen);
+                mAdapter = new ArtStyleAdapter(MyApp.getContext(), R.layout.item, mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

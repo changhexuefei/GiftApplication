@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.CrossBorderAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.CrossBorder;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -64,7 +65,7 @@ public class CrossBorderShoppingFragment extends Fragment {
                 Gson gson = new Gson();
                 CrossBorder crossBorder = gson.fromJson(response, CrossBorder.class);
                 mItemsBeen = crossBorder.getData().getItems();
-                mAdapter = new CrossBorderAdapter(getContext(), R.layout.item, mItemsBeen);
+                mAdapter = new CrossBorderAdapter(MyApp.getContext(), R.layout.item, mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

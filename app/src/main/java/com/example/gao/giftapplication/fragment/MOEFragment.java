@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.MOEAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.MOE;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -61,7 +62,7 @@ public class MOEFragment extends Fragment {
                 Gson gson = new Gson();
                 MOE moe = gson.fromJson(response, MOE.class);
                 mItemsBeen = moe.getData().getItems();
-                mAdapter = new MOEAdapter(getContext(), R.layout.item, mItemsBeen);
+                mAdapter = new MOEAdapter(MyApp.getContext(), R.layout.item, mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

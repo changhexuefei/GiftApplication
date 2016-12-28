@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
+
               android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/author_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -31,14 +32,17 @@
                 android:id="@+id/nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="111"/>
+                android:text="111"
+                android:textColor="#000000"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="wwwwww"
-                android:textSize="12sp"/>
+                android:textColor="#aba4a4"
+                android:textSize="10sp"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -48,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/author_info"
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/test"/>
 
@@ -57,6 +62,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cover_image_url"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
 
         android:layout_marginTop="4dp"
         android:text="ggggggggggggg"
@@ -66,31 +73,34 @@
     <!--lineSpacingMultiplier用来设置行间距的倍数-->
     <!--lineSpacingExtra用来设置行间距-->
     <TextView
-
         android:id="@+id/content_introduction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="4dp"
-
         android:ellipsize="end"
         android:lineSpacingMultiplier="1.2"
         android:maxLines="2"
         android:text="343434343434"
-        android:textSize="12sp"/>
+        android:textColor="#aba4a4"
+        android:textSize="13sp"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="6dp"
-        android:background="#efeaea"
-        />
+        android:background="#efeaea"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/content_introduction"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="6dp"
         android:gravity="center_vertical">
 
@@ -98,16 +108,21 @@
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:text="栏目"
+            android:textColor="#000000"
             android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/column_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@+id/tv"
+            android:textColor="#aba4a4"
             android:textSize="12sp"/>
 
         <TextView
@@ -115,14 +130,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:drawableLeft="@mipmap/like"
             android:drawablePadding="6dp"
-            android:gravity="center_vertical"
-            android:textSize="12sp"
-            />
-
+            android:textColor="#aba4a4"
+            android:textSize="12sp"/>
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="6dp"
+        android:background="#fae6e6"/>
 
 
 </LinearLayout>

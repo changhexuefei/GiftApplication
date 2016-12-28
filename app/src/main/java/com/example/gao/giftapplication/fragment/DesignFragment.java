@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.DesignAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Design;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -62,7 +63,7 @@ public class DesignFragment extends Fragment {
                 Gson gson = new Gson();
                 Design design = gson.fromJson(response, Design.class);
                 mItemsBeen = design.getData().getItems();
-                mAdapter = new DesignAdapter(getContext(), R.layout.item, mItemsBeen);
+                mAdapter = new DesignAdapter(MyApp.getContext(), R.layout.item, mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.MyBaseAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.GirlFriend;
 import com.example.gao.giftapplication.http.HttpUtils;
 import com.example.gao.giftapplication.http.response.JsonResponseHandler;
@@ -61,12 +62,17 @@ public class GirlFriendFragment extends Fragment {
                 Gson gson = new Gson();
                 GirlFriend girlFriend = gson.fromJson(response, GirlFriend.class);
                 mItemsBeen = girlFriend.getData().getItems();
-                mMyBaseAdapter = new MyBaseAdapter(getContext(),R.layout.item,mItemsBeen);
+                mMyBaseAdapter = new MyBaseAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
+
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);
                 mGirlfriendFragment.setItemAnimator(new DefaultItemAnimator());
+                mGirlfriendFragment.setRefreshing(true);
+                mGirlfriendFragment.setNoMore(true);
                 LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mMyBaseAdapter);
+//                adapter.addFooterView(new SampleFooter(this));
+//                adapter.addHeaderView(new SampleHeader(this));
                 mGirlfriendFragment.setAdapter(adapter);
             }
         });

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.SelectionAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Banners;
 import com.example.gao.giftapplication.bean.Selection;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -75,7 +76,7 @@ public class SelectionFragment extends Fragment {
                 Selection selection = gson.fromJson(response, Selection.class);
                 LogUtils.d("22222:" + selection);
                 mItemsBeen = selection.getData().getItems();
-                mAdapter = new SelectionAdapter(getContext(),R.layout.item,mItemsBeen);
+                mAdapter = new SelectionAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
 
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mSelectionLR.setLayoutManager(manager);

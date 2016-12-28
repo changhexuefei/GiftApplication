@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.CreativeLifeStyleAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.CreativeLifeStyle;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -61,7 +62,7 @@ public class CreativeLifeStyleFragment extends Fragment {
                 Gson gson = new Gson();
                 CreativeLifeStyle creativeLifeStyle = gson.fromJson(response, CreativeLifeStyle.class);
                 mItemsBeen = creativeLifeStyle.getData().getItems();
-                mAdapter = new CreativeLifeStyleAdapter(getContext(),R.layout.item,mItemsBeen);
+                mAdapter = new CreativeLifeStyleAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.WonderfulAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Wonderful;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -62,7 +63,7 @@ public class WonderfulFragment extends Fragment {
                 Gson gson = new Gson();
                 Wonderful wonderful = gson.fromJson(response, Wonderful.class);
                 mItemsBeen = wonderful.getData().getItems();
-                mAdapter = new WonderfulAdapter(getContext(), R.layout.item, mItemsBeen);
+                mAdapter = new WonderfulAdapter(MyApp.getContext(), R.layout.item, mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

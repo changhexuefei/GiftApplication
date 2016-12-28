@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.HoneyFriendsAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.HoneyFriends;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -61,7 +62,7 @@ public class HoneyFriendsFragment extends Fragment {
                 Gson gson = new Gson();
                 HoneyFriends honeyFriends = gson.fromJson(response, HoneyFriends.class);
                 mItemsBeen = honeyFriends.getData().getItems();
-                mAdapter = new HoneyFriendsAdapter(getContext(),R.layout.item,mItemsBeen);
+                mAdapter = new HoneyFriendsAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

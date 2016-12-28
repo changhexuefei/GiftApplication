@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.ParentsAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Parents;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -62,7 +63,7 @@ public class ParentsFragment extends Fragment {
                 Gson gson = new Gson();
                 Parents parents = gson.fromJson(response, Parents.class);
                 mItemsBeen = parents.getData().getItems();
-                mAdapter = new ParentsAdapter(getContext(),R.layout.item,mItemsBeen);
+                mAdapter = new ParentsAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);

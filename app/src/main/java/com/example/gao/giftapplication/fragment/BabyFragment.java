@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.adapter.BabyAdapter;
+import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Baby;
 import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
@@ -62,7 +63,7 @@ public class BabyFragment extends Fragment {
                 Gson gson = new Gson();
                 Baby baby = gson.fromJson(response, Baby.class);
                 mItemsBeen = baby.getData().getItems();
-                mAdapter = new BabyAdapter(getContext(),R.layout.item,mItemsBeen);
+                mAdapter = new BabyAdapter(MyApp.getContext(),R.layout.item,mItemsBeen);
                 final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                 mGirlfriendFragment.setLayoutManager(manager);
                 mGirlfriendFragment.setHasFixedSize(true);
