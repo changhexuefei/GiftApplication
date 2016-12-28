@@ -1,10 +1,12 @@
 package com.example.gao.giftapplication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Window;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -12,6 +14,8 @@ import com.example.gao.giftapplication.view.CategoryFragment;
 import com.example.gao.giftapplication.view.GiftFragment;
 import com.example.gao.giftapplication.view.HomeFragment;
 import com.example.gao.giftapplication.view.ProfileFragment;
+
+import org.xutils.common.util.DensityUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation_bar)
     RadioGroup mNavigationBar;
+    @BindView(R.id.home)
+    RadioButton mHome;
+    @BindView(R.id.gift)
+    RadioButton mGift;
+    @BindView(R.id.category)
+    RadioButton mCategory;
+    @BindView(R.id.profile)
+    RadioButton mProfile;
     private CategoryFragment cf;
     private GiftFragment gf;
     private HomeFragment hf;
@@ -39,10 +51,19 @@ public class MainActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        controlIconSize();
+
         showFragment(HF);
         mNavigationBar.check(R.id.home);
         init();
 
+    }
+
+    private void controlIconSize() {
+        initDrawable(mHome);
+        initDrawable(mGift);
+        initDrawable(mCategory);
+        initDrawable(mProfile);
     }
 
     private void init() {
@@ -51,15 +72,19 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.home:
+
                         showFragment(HF);
                         break;
                     case R.id.gift:
+
                         showFragment(GF);
                         break;
                     case R.id.category:
+
                         showFragment(CF);
                         break;
                     case R.id.profile:
+
                         showFragment(PF);
                         break;
                 }
@@ -145,5 +170,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void initDrawable(RadioButton v) {
+        Drawable drawable = v.getCompoundDrawables()[1];
+        drawable.setBounds(0, 0, DensityUtil.dip2px(24), DensityUtil.dip2px(24));
+        v.setCompoundDrawables(null, drawable, null, null);
+    }
 
 }
