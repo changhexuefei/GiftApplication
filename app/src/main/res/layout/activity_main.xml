@@ -28,55 +28,39 @@
         android:padding="4dp">
 
         <RadioButton
-            android:textSize="10sp"
             android:id="@+id/home"
+            style="@style/main_bottom_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:button="@null"
             android:drawableTop="@drawable/home"
-            android:gravity="center"
-
-            android:text="@string/home"
-            android:textColor="@color/font_color"/>
+            android:text="@string/home"/>
 
         <RadioButton
-            android:textSize="10sp"
             android:id="@+id/gift"
+            style="@style/main_bottom_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:button="@null"
             android:drawableTop="@drawable/gift"
-            android:gravity="center"
-
-            android:text="@string/gift"
-            android:textColor="@color/font_color"/>
+            android:text="@string/gift"/>
 
         <RadioButton
-            android:textSize="10sp"
             android:id="@+id/category"
+            style="@style/main_bottom_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:button="@null"
             android:drawableTop="@drawable/category"
-            android:gravity="center"
-
-            android:text="@string/category"
-            android:textColor="@color/font_color"/>
+            android:text="@string/category"/>
 
         <RadioButton
-            android:textSize="10sp"
+            style="@style/main_bottom_style"
             android:id="@+id/profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:button="@null"
             android:drawableTop="@drawable/profile"
-            android:gravity="center"
-
-            android:text="@string/profile"
-            android:textColor="@color/font_color"/>
+            android:text="@string/profile"/>
     </RadioGroup>
 </RelativeLayout>
