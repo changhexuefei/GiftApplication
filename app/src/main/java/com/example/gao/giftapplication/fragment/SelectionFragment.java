@@ -16,14 +16,10 @@ import com.example.gao.giftapplication.bean.Banners;
 import com.example.gao.giftapplication.bean.Selection;
 import com.example.gao.giftapplication.http.HttpUtils;
 import com.example.gao.giftapplication.http.response.JsonResponseHandler;
-import com.example.gao.giftapplication.model.GlideImageLoader;
 import com.example.gao.giftapplication.utils.LogUtils;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +35,8 @@ public class SelectionFragment extends Fragment {
     @BindView(R.id.selection_LR)
     LRecyclerView mSelectionLR;
 
-    @BindView(R.id.banner)
-    Banner mBanner;
+//    @BindView(R.id.banner)
+//    Banner mBanner;
     private SelectionAdapter mAdapter;
     private List<String> mStrings;
     private List<Selection.DataBean.ItemsBean> mItemsBeen;
@@ -83,6 +79,7 @@ public class SelectionFragment extends Fragment {
                 mSelectionLR.setHasFixedSize(true);
                 mSelectionLR.setItemAnimator(new DefaultItemAnimator());
                 LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mAdapter);
+                adapter.addHeaderView(LayoutInflater.from(getActivity()).inflate(R.layout.header,null));
                 mSelectionLR.setAdapter(adapter);
             }
         });
@@ -118,22 +115,22 @@ public class SelectionFragment extends Fragment {
     }
 
     private void putBanners(List<String> strings) {
-        //设置banner样式
-        mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
-        mBanner.setImageLoader(new GlideImageLoader());
-        //设置图片集合
-        mBanner.setImages(strings);
-        //设置banner动画效果
-        mBanner.setBannerAnimation(Transformer.DepthPage);
-        //设置标题集合（当banner样式有显示title时）
-//        mBanner.setBannerTitles(Arrays.asList(titles));
-        //设置自动轮播，默认为true
-        mBanner.isAutoPlay(true);
-        //设置轮播时间
-        mBanner.setDelayTime(3000);
-        //设置指示器位置（当banner模式中有指示器时）
-        mBanner.setIndicatorGravity(BannerConfig.CENTER);
-        //banner设置方法全部调用完毕时最后调用
-        mBanner.start();
+//        //设置banner样式
+//        mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+//        mBanner.setImageLoader(new GlideImageLoader());
+//        //设置图片集合
+//        mBanner.setImages(strings);
+//        //设置banner动画效果
+//        mBanner.setBannerAnimation(Transformer.DepthPage);
+//        //设置标题集合（当banner样式有显示title时）
+////        mBanner.setBannerTitles(Arrays.asList(titles));
+//        //设置自动轮播，默认为true
+//        mBanner.isAutoPlay(true);
+//        //设置轮播时间
+//        mBanner.setDelayTime(3000);
+//        //设置指示器位置（当banner模式中有指示器时）
+//        mBanner.setIndicatorGravity(BannerConfig.CENTER);
+//        //banner设置方法全部调用完毕时最后调用
+//        mBanner.start();
     }
 }

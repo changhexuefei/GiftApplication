@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="190dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="6dp"
+        android:background="#fae6e6"/>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:gravity="center"
+            android:drawableTop="@drawable/gift"
+            android:id="@+id/one"
+            android:text="0元礼物"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <view
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/two"
+            android:drawableTop="@drawable/gift"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="定制礼物"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <view
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:drawableTop="@drawable/gift"
+            android:id="@+id/there"
+            android:text="积分话题"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:gravity="center"
+            android:drawableTop="@drawable/gift"
+            android:id="@+id/four"
+            android:text="巡店"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <view
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:gravity="center"
+            android:drawableTop="@drawable/gift"
+            android:text="一周精选"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/five"/>
+
+        <view
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:id="@+id/six"
+            android:drawableTop="@drawable/gift"
+            android:text="福利活动"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="6dp"
+        android:background="#fae6e6"/>
+
+
+
+</LinearLayout>
