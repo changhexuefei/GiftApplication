@@ -1,12 +1,38 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.gao.giftapplication.fragment.ProductFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:background="#fff"
+              tools:context="com.example.gao.giftapplication.fragment.ProductFragment">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ListView
+        android:id="@+id/title"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_weight="0.8"
+        android:divider="#00000000"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+
+
+        <GridView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="4dp"
+            android:horizontalSpacing="2dp"
+            android:verticalSpacing="2dp"
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:numColumns="3"
+            android:stretchMode="columnWidth">
+        </GridView>
+    </LinearLayout>
+
+</LinearLayout>

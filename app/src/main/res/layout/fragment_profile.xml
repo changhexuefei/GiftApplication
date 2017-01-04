@@ -15,7 +15,6 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000"
             android:src="@mipmap/icon_scan"/>
 
         <ImageView
@@ -23,8 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp"
-            android:background="#000"
-            android:src="@mipmap/me_settings"/>
+            android:src="@mipmap/me_setting"/>
 
     </LinearLayout>
 
@@ -58,7 +56,7 @@
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="15dp"
+            android:layout_width="14dp"
             android:layout_height="20dp"
             android:layout_marginLeft="40dp"
             android:src="@mipmap/icon_mobile"/>
@@ -66,12 +64,20 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp">
+
+            </Spinner>
 
             <EditText
                 android:layout_width="250dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="4dp"
                 android:background="@null"
                 android:hint="输入手机号"
                 android:inputType="phone"
@@ -109,13 +115,13 @@
             android:orientation="vertical">
 
             <EditText
-                android:inputType="text"
                 android:id="@+id/editText"
                 android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
                 android:background="@null"
                 android:hint="输入密码"
+                android:inputType="text"
                 android:password="true"
                 android:textColorHint="#c2baba"
                 android:textCursorDrawable="@null"
@@ -176,11 +182,12 @@
         android:background="#d7d4d4"/>
 
     <TextView
+
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="#c2baba"
+        android:background="@drawable/textviewshape"
         android:gravity="center"
         android:padding="8dp"
         android:text="登录"
@@ -212,12 +219,12 @@
             android:background="#000"/>
 
         <TextView
-            android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="使用社交账号登录"/>
+            android:text="使用社交账号登录"
+            android:textSize="12sp"/>
 
         <View
             android:layout_width="100dp"

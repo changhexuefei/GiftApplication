@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.example.gao.giftapplication.R;
 
 /**
+ * 攻略页面
  * A simple {@link Fragment} subclass.
  */
 public class StrategyFragment extends Fragment {

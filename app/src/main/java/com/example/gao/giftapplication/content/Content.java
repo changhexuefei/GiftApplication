@@ -17,6 +17,7 @@ public class Content {
     public static  final String ARTSTYLE ="http://api.liwushuo.com/v2/channels/14/items_v2?gender=1&limit=20&offset=0&generation=1";
     public static  final String WONDERFUL ="http://api.liwushuo.com/v2/channels/126/items_v2?gender=1&limit=20&offset=0&generation=1";
     public static  final String MOE ="http://api.liwushuo.com/v2/channels/11/items_v2?gender=1&limit=20&offset=0&generation=1";
+    public static  final String PRODUCTNAME="http://api.liwushuo.com/v2/item_categories/tree";
 
 
 }
