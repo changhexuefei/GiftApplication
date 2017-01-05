@@ -2,8 +2,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="horizontal"
               android:background="#fff"
+              android:orientation="horizontal"
               tools:context="com.example.gao.giftapplication.fragment.ProductFragment">
 
     <ListView
@@ -20,19 +20,19 @@
         android:orientation="vertical">
 
 
-
-        <GridView
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="4dp"
-            android:horizontalSpacing="2dp"
-            android:verticalSpacing="2dp"
+        <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView
+            android:clipToPadding="false"
             android:id="@+id/content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
             android:gravity="center_horizontal"
+            android:horizontalSpacing="2dp"
             android:numColumns="3"
-            android:stretchMode="columnWidth">
-        </GridView>
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="2dp">
+        </com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView>
     </LinearLayout>
 
 </LinearLayout>

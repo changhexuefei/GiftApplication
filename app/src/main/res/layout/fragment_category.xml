@@ -4,16 +4,40 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:gravity="center"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
               tools:context="com.example.gao.giftapplication.view.CategoryFragment">
 
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/category_tabs"
         android:layout_width="wrap_content"
-        android:layout_height="48dp">
+        android:layout_height="35dp">
     </com.astuetz.PagerSlidingTabStrip>
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/search_estate_bar"
+            android:layout_width="320dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/search_box_shape"
+            android:gravity="center"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
+        android:layout_marginTop="6dp"
         android:id="@+id/category_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

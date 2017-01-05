@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 
 import com.example.gao.giftapplication.R;
@@ -19,6 +18,7 @@ import com.example.gao.giftapplication.content.Content;
 import com.example.gao.giftapplication.http.HttpUtils;
 import com.example.gao.giftapplication.http.response.JsonResponseHandler;
 import com.google.gson.Gson;
+import com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +37,8 @@ import okhttp3.Call;
  */
 public class ProductFragment extends Fragment {
 
+    @BindView(R.id.content)
+    StickyGridHeadersGridView mContent;
     private List<Produce.DataBean.CategoriesBean> mCategoriesBeen;
     private List<Produce.DataBean.CategoriesBean.SubcategoriesBean> mSubcategoriesBeen;
     private ProduceIconAdapter mProduceIconAdapter;
@@ -44,8 +46,6 @@ public class ProductFragment extends Fragment {
     @BindView(R.id.title)
     ListView mTitle;
 
-    @BindView(R.id.content)
-    GridView mContent;
 
     public ProductFragment() {
 
@@ -63,7 +63,6 @@ public class ProductFragment extends Fragment {
 
         return view;
     }
-
 
 
     private void putDataToListView() {
@@ -86,13 +85,13 @@ public class ProductFragment extends Fragment {
                     JSONObject object = new JSONObject(response);
                     JSONObject data = object.getJSONObject("data");
                     JSONArray categories = data.getJSONArray("categories");
-                    mSubcategoriesBeen=new ArrayList<Produce.DataBean.CategoriesBean.SubcategoriesBean>();
-                    for (int i = 0; i <categories.length() ; i++) {
+                    mSubcategoriesBeen = new ArrayList<Produce.DataBean.CategoriesBean.SubcategoriesBean>();
+                    for (int i = 0; i < categories.length(); i++) {
                         JSONObject jsonObject = categories.getJSONObject(i);
                         JSONArray subcategories = jsonObject.getJSONArray("subcategories");
-                        for (int j = 0; j <subcategories.length(); j++) {
+                        for (int j = 0; j < subcategories.length(); j++) {
                             JSONObject jsonObject1 = subcategories.getJSONObject(j);
-                           Produce.DataBean.CategoriesBean.SubcategoriesBean bean = new Produce.DataBean.CategoriesBean.SubcategoriesBean();
+                            Produce.DataBean.CategoriesBean.SubcategoriesBean bean = new Produce.DataBean.CategoriesBean.SubcategoriesBean();
                             bean.setName(jsonObject1.getString("name"));
                             bean.setIcon_url(jsonObject1.getString("icon_url"));
                             mSubcategoriesBeen.add(bean);
@@ -104,7 +103,6 @@ public class ProductFragment extends Fragment {
                 }
 
 
-
                 mCategoriesNameAdapter.setCategoriesBeen(mCategoriesBeen);
                 mTitle.setVerticalScrollBarEnabled(false);
                 mTitle.setFastScrollEnabled(false);
@@ -112,14 +110,20 @@ public class ProductFragment extends Fragment {
                 mTitle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                       getData(position);
 
                     }
                 });
 
 
-
             }
         });
+    }
+
+    private void getData(int position) {
+        List<Produce.DataBean.CategoriesBean.SubcategoriesBean> subcategories = mCategoriesBeen.get(position).getSubcategories();
+        mProduceIconAdapter.setSubcategoriesBeen(subcategories);
+        mContent.setAdapter(mProduceIconAdapter);
     }
 
 
@@ -127,8 +131,9 @@ public class ProductFragment extends Fragment {
 
         mContent.setVerticalScrollBarEnabled(false);
         mContent.setFastScrollEnabled(false);
-        mProduceIconAdapter = new ProduceIconAdapter(getActivity());
-        mProduceIconAdapter.setSubcategoriesBeen(categoriesBeen);
+        mProduceIconAdapter = new ProduceIconAdapter(mCategoriesBeen,getActivity());
+        mProduceIconAdapter.setSubcategoriesBeen(mSubcategoriesBeen);
+
         mContent.setAdapter(mProduceIconAdapter);
         mContent.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -143,8 +148,6 @@ public class ProductFragment extends Fragment {
         });
 
     }
-
-
 
 
 }

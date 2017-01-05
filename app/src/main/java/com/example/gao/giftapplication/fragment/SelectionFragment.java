@@ -20,6 +20,7 @@ import com.example.gao.giftapplication.utils.LogUtils;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
+import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class SelectionFragment extends Fragment {
     private SelectionAdapter mAdapter;
     private List<String> mStrings;
     private List<Selection.DataBean.ItemsBean> mItemsBeen;
+    private Banner mBanner;
 
     public SelectionFragment() {
 
@@ -79,7 +81,8 @@ public class SelectionFragment extends Fragment {
                 mSelectionLR.setHasFixedSize(true);
                 mSelectionLR.setItemAnimator(new DefaultItemAnimator());
                 LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(mAdapter);
-                adapter.addHeaderView(LayoutInflater.from(getActivity()).inflate(R.layout.header,null));
+//                mBanner = (Banner) LayoutInflater.from(getActivity()).inflate(R.layout.selection_header, null);
+//                adapter.addHeaderView(mBanner);
                 mSelectionLR.setAdapter(adapter);
             }
         });

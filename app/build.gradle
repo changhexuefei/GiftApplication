@@ -44,7 +44,6 @@ dependencies {
     //EventBus
     compile files('libs/androideventbus-1.0.5.jar')
     compile project(':library')
-
     //glide
     //banner
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -63,4 +62,5 @@ dependencies {
     compile 'com.youth.banner:banner:1.4.2'
     compile 'com.zhy:base-rvadapter:3.0.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile project(':Library2')
 }

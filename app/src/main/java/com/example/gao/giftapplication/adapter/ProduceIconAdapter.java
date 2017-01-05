@@ -12,26 +12,26 @@ import com.bumptech.glide.Glide;
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Produce;
+import com.tonicartos.widget.stickygridheaders.StickyGridHeadersSimpleAdapter;
 
 import java.util.List;
 
-/**
- * Created by gao on 2017/1/3.
- */
 
-public class ProduceIconAdapter extends BaseAdapter {
-
+public class ProduceIconAdapter extends BaseAdapter implements StickyGridHeadersSimpleAdapter {
+    private List<Produce.DataBean.CategoriesBean> mCategoriesBeen;
     private List<Produce.DataBean.CategoriesBean.SubcategoriesBean> mSubcategoriesBeen;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public ProduceIconAdapter(Context context) {
+    public ProduceIconAdapter(List<Produce.DataBean.CategoriesBean> categoriesBeen, Context context) {
+        mCategoriesBeen = categoriesBeen;
         mContext = context;
         this.mInflater=LayoutInflater.from(context);
     }
 
     public void setSubcategoriesBeen(List<Produce.DataBean.CategoriesBean.SubcategoriesBean> subcategoriesBeen) {
         mSubcategoriesBeen = subcategoriesBeen;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ProduceIconAdapter extends BaseAdapter {
         ItemViewHolder holder;
         if(convertView == null){
             holder = new ItemViewHolder();
-            convertView = mInflater.inflate(R.layout.gridviewitem,null);
+            convertView = mInflater.inflate(R.layout.gridviewitem,parent,false);
             holder.iv_icon= (ImageView) convertView.findViewById(R.id.produce_icon);
             holder.tv_iconName = (TextView) convertView.findViewById(R.id.icon_name);
             convertView.setTag(holder);
@@ -72,10 +72,35 @@ public class ProduceIconAdapter extends BaseAdapter {
         return convertView;
     }
 
+    @Override
+    public long getHeaderId(int position) {
+        return mSubcategoriesBeen.size()-1;
+    }
+
+    @Override
+    public View getHeaderView(int position, View convertView, ViewGroup parent) {
+        HeaderViewHolder mHeaderHolder;
+        if (convertView == null) {
+            mHeaderHolder = new HeaderViewHolder();
+            convertView = mInflater.inflate(R.layout.header, parent,false);
+            mHeaderHolder.tv_header = (TextView) convertView
+                    .findViewById(R.id.header);
+            convertView.setTag(mHeaderHolder);
+        } else {
+            mHeaderHolder = (HeaderViewHolder) convertView.getTag();
+        }
+
+        mHeaderHolder.tv_header.setText(mCategoriesBeen.get(position).getName());
+
+        return convertView;
+    }
+
     class ItemViewHolder {
         ImageView iv_icon;
         TextView tv_iconName;
-
+    }
+    class HeaderViewHolder {
+        TextView tv_header;
 
     }
 

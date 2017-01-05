@@ -94,6 +94,7 @@ public class HomeFragment extends Fragment {
 
     //
     private void setTabsValue() {
+
         // 设置Tab是自动填充满屏幕的
         tabs.setShouldExpand(true);
         // 设置Tab的分割线是透明的

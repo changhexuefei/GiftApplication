@@ -52,7 +52,7 @@ public class CategoriesNameAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.listviewitem, null);
+            convertView = mInflater.inflate(R.layout.listviewitem, parent,false);
             holder.tv_name = (TextView) convertView.findViewById(R.id.produce_name);
             convertView.setTag(holder);
         } else {
