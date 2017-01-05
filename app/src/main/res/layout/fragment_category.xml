@@ -2,10 +2,10 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:gravity="center"
               android:focusable="true"
               android:focusableInTouchMode="true"
+              android:gravity="center"
+              android:orientation="vertical"
               tools:context="com.example.gao.giftapplication.view.CategoryFragment">
 
 
@@ -14,11 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp">
     </com.astuetz.PagerSlidingTabStrip>
+
     <LinearLayout
-        android:layout_marginTop="8dp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <EditText
@@ -32,15 +33,16 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:singleLine="true"
+            android:textCursorDrawable="@null"
             android:textSize="14sp"/>
 
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
-        android:layout_marginTop="6dp"
         android:id="@+id/category_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp">
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

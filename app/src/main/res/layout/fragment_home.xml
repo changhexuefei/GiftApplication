@@ -2,15 +2,15 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
               android:focusable="true"
               android:focusableInTouchMode="true"
+              android:orientation="vertical"
               tools:context="com.example.gao.giftapplication.view.HomeFragment">
 
     <LinearLayout
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
@@ -30,18 +30,20 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:singleLine="true"
+            android:textCursorDrawable="@null"
             android:textSize="14sp"/>
 
         <ImageView
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:src="@mipmap/icon_gift_send_remind"/>
     </LinearLayout>
+
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="34dp" />
+        android:layout_height="34dp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/sort_fragment"
