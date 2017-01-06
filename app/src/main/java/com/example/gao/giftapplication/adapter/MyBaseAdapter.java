@@ -45,8 +45,6 @@ public class MyBaseAdapter extends CommonAdapter<GirlFriend.DataBean.ItemsBean> 
         holder.getView(R.id.column_title).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 jumpToColumnPage(itemsBean);
 
             }

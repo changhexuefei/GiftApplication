@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.activity.AuthorInfoActivity;
+import com.example.gao.giftapplication.activity.ColumnInfoActivity;
 import com.example.gao.giftapplication.activity.CommunalActivity;
 import com.example.gao.giftapplication.app.MyApp;
 import com.example.gao.giftapplication.bean.Parents;
@@ -47,6 +48,9 @@ public class ParentsAdapter extends CommonAdapter<Parents.DataBean.ItemsBean> {
                 .into((ImageView) holder.getView(R.id.cover_image_url));
         Glide.with(MyApp.getContext()).load(itemsBean.getAuthor().getAvatar_url())
                 .into((ImageView) holder.getView(R.id.author_icon));
+
+
+
         holder.getView(R.id.cover_image_url).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +82,27 @@ public class ParentsAdapter extends CommonAdapter<Parents.DataBean.ItemsBean> {
             }
         });
 
+        holder.getView(R.id.column_title).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpToColumnPage(itemsBean);
+
+            }
+        });
+
     }
+
+    private void jumpToColumnPage(Parents.DataBean.ItemsBean itemsBean) {
+        Intent i = new Intent(mContext, ColumnInfoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("column_title", itemsBean.getColumn().getTitle());
+        bundle.putString("cover_image_url", itemsBean.getColumn().getCover_image_url());
+        bundle.putString("column_description", itemsBean.getColumn().getDescription());
+        i.putExtras(bundle);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        mContext.startActivity(i);
+    }
+
 
     private void getAuthorInfo(Parents.DataBean.ItemsBean itemsBean) {
         Intent i = new Intent(mContext, AuthorInfoActivity.class);
