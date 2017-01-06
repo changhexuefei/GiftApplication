@@ -101,7 +101,7 @@
         android:layout_below="@+id/content_introduction"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="12dp"
         android:gravity="center_vertical">
 
         <TextView
@@ -141,8 +141,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="6dp"
-        android:background="#fae6e6"/>
+        android:layout_marginTop="12dp"
+        android:background="#f5eeee"/>
 
 
 </LinearLayout>

@@ -20,7 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GirlFriendActivity">
+        <activity android:name=".activity.CommunalActivity">
+        </activity>
+        <activity android:name=".activity.AuthorInfoActivity">
+        </activity>
+        <activity android:name=".activity.ColumnInfoActivity">
         </activity>
     </application>
 

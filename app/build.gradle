@@ -63,4 +63,5 @@ dependencies {
     compile 'com.zhy:base-rvadapter:3.0.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile project(':Library2')
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
 }

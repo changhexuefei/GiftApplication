@@ -3,6 +3,7 @@ package com.example.gao.giftapplication.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,20 +13,26 @@ import com.example.gao.giftapplication.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class GirlFriendActivity extends AppCompatActivity {
+public class CommunalActivity extends AppCompatActivity {
 
+
+    @BindView(R.id.return_icon)
+    ImageView mReturnIcon;
+    @BindView(R.id.see)
+    TextView mSee;
     @BindView(R.id.icon)
-    ImageView mGirlIcon;
-    @BindView(R.id.web_view)
-    WebView mGirlWebView;
+    ImageView mIcon;
     @BindView(R.id.title)
     TextView mTitle;
+    @BindView(R.id.web_view)
+    WebView mWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_girl_friend);
+        setContentView(R.layout.activity_communal);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
@@ -37,9 +44,19 @@ public class GirlFriendActivity extends AppCompatActivity {
 
     private void putDataToWebView(Bundle bundle) {
         mTitle.setText(bundle.getString("title"));
-        Glide.with(this).load(bundle.getString("cover_image_url")).into(mGirlIcon);
-        mGirlWebView.loadUrl(bundle.getString("content_url"));
+        Glide.with(this).load(bundle.getString("cover_image_url")).into(mIcon);
+        mWebView.loadUrl(bundle.getString("content_url"));
     }
 
 
+    @OnClick({R.id.return_icon, R.id.see})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.return_icon:
+                finish();
+                break;
+            case R.id.see:
+                break;
+        }
+    }
 }
