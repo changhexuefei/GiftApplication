@@ -86,6 +86,13 @@ public class ArtStyleAdapter extends CommonAdapter<ArtStyle.DataBean.ItemsBean> 
             }
         });
 
+        holder.getView(R.id.likes_count).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpToPage(itemsBean);
+            }
+        });
+
     }
 
     private void jumpToColumnPage(ArtStyle.DataBean.ItemsBean itemsBean) {

@@ -82,7 +82,12 @@ public class WonderfulAdapter extends CommonAdapter<Wonderful.DataBean.ItemsBean
             @Override
             public void onClick(View v) {
                 jumpToColumnPage(itemsBean);
-
+            }
+        });
+        holder.getView(R.id.likes_count).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpToPage(itemsBean);
             }
         });
 
@@ -97,7 +102,6 @@ public class WonderfulAdapter extends CommonAdapter<Wonderful.DataBean.ItemsBean
         i.putExtras(bundle);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         mContext.startActivity(i);
-
 
     }
 

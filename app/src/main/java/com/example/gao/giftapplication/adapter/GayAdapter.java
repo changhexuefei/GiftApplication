@@ -86,6 +86,12 @@ public class GayAdapter extends CommonAdapter<Gay.DataBean.ItemsBean> {
 
             }
         });
+        holder.getView(R.id.likes_count).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpToPage(itemsBean);
+            }
+        });
 
     }
 
