@@ -11,7 +11,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
         <activity android:name=".WelcomeActivity">
             <intent-filter>
@@ -20,11 +23,25 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CommunalActivity">
+        <activity
+            android:name=".activity.CommunalActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
-        <activity android:name=".activity.AuthorInfoActivity">
+        <activity
+            android:name=".activity.AuthorInfoActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
-        <activity android:name=".activity.ColumnInfoActivity">
+        <activity
+            android:name=".activity.ColumnInfoActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
+        </activity>
+        <activity
+            android:name=".activity.SearchActivity"
+
+            >
         </activity>
     </application>
 

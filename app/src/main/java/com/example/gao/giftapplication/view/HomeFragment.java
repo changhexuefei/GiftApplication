@@ -1,12 +1,15 @@
 package com.example.gao.giftapplication.view;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.InputType;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -15,9 +18,13 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.gao.giftapplication.R;
+import com.example.gao.giftapplication.activity.SearchActivity;
 import com.example.gao.giftapplication.fragment.ArtStyleFragment;
 import com.example.gao.giftapplication.fragment.BabyFragment;
 import com.example.gao.giftapplication.fragment.BoyFriendFragment;
@@ -34,26 +41,33 @@ import com.example.gao.giftapplication.fragment.ScienceFragment;
 import com.example.gao.giftapplication.fragment.SelectionFragment;
 import com.example.gao.giftapplication.fragment.WonderfulFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+    @BindView(R.id.search_estate_bar)
+    EditText mSearchEstateBar;
+    @BindView(R.id.to_other)
+    ImageView mToOther;
     /**
      * PagerSlidingTabStrip的实例
      */
     private PagerSlidingTabStrip tabs;
-    //
-//    /**
-//     * 获取当前屏幕的密度
-//     */
+
+    /**
+     * 获取当前屏幕的密度
+     */
     private DisplayMetrics dm;
-    //
-//    private ArrayList<Fragment> mFragments = new ArrayList<>();
+
     private final String[] mTitles = {"精选", "送女票", "海淘"
             , "创意生活", "科技范", "送爸妈", "送基友", "送闺蜜", "送同事", "送宝贝", "设计感", "文艺风"
             , "奇葩搞怪", "萌萌达"
     };
-    private MyPagerAdapter mAdapter;
+
     private GirlFriendFragment gff;
     private ArtStyleFragment asf;
     private BabyFragment bf;
@@ -80,7 +94,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-//        setOverflowShowingAlways();
+
         dm = getResources().getDisplayMetrics();
         ViewPager pager = (ViewPager) view.findViewById(R.id.sort_fragment);
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
@@ -89,6 +103,7 @@ public class HomeFragment extends Fragment {
         pager.setCurrentItem(0);
         tabs.setViewPager(pager);
         setTabsValue();
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -117,6 +132,22 @@ public class HomeFragment extends Fragment {
 //
 //
 //
+    }
+
+    @OnClick({R.id.search_estate_bar, R.id.to_other})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.search_estate_bar:
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mSearchEstateBar.getWindowToken(), 0);
+                mSearchEstateBar.setInputType(InputType.TYPE_NULL);
+                Intent intent = new Intent(getActivity(),SearchActivity.class);
+                startActivity(intent);
+
+                break;
+            case R.id.to_other:
+                break;
+        }
     }
 
     public class MyPagerAdapter extends FragmentStatePagerAdapter {
