@@ -2,6 +2,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:focusable="true"
               android:focusableInTouchMode="true"
               android:orientation="vertical"
@@ -43,9 +44,9 @@
             android:src="@mipmap/icon_gift_send_remind"/>
     </LinearLayout>
 
-    <com.astuetz.PagerSlidingTabStrip
+    <com.example.gao.giftapplication.model.PagerSlidingTabStrip
         android:id="@+id/tabs"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="34dp"/>
 
     <android.support.v4.view.ViewPager

@@ -22,7 +22,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.activity.SearchActivity;
 import com.example.gao.giftapplication.fragment.ArtStyleFragment;
@@ -40,6 +39,7 @@ import com.example.gao.giftapplication.fragment.ParentsFragment;
 import com.example.gao.giftapplication.fragment.ScienceFragment;
 import com.example.gao.giftapplication.fragment.SelectionFragment;
 import com.example.gao.giftapplication.fragment.WonderfulFragment;
+import com.example.gao.giftapplication.model.PagerSlidingTabStrip;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,6 +84,9 @@ public class HomeFragment extends Fragment {
     private SelectionFragment sef;
     private WonderfulFragment wf;
 
+
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -103,6 +106,7 @@ public class HomeFragment extends Fragment {
         pager.setCurrentItem(0);
         tabs.setViewPager(pager);
         setTabsValue();
+
         ButterKnife.bind(this, view);
         return view;
     }
@@ -116,23 +120,27 @@ public class HomeFragment extends Fragment {
         tabs.setDividerColor(Color.TRANSPARENT);
         //设置Tab底部线的颜色是透明的
         tabs.setUnderlineColor(Color.TRANSPARENT);
+
         // 设置Tab底部线的高度
         tabs.setUnderlineHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, dm));
         // 设置Tab Indicator的高度
         tabs.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, dm));
         // 设置Tab标题文字的大小
+//        tabs.setTextSize(24);
         tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, dm));
         // 设置Tab Indicator的颜色
-        tabs.setIndicatorColor(Color.parseColor("#d83737"));//#d83737   #d83737(绿)
-        // 设置选中Tab文字的颜色 (这是我自定义的一个方法)
-//        tabs.setSelectedTextColor(Color.parseColor("#ffffff"));
-//        tabs.setTextColor(Color.parseColor("#ffffff"));
+
+        tabs.setIndicatorColor(Color.parseColor("#CC0000"));
+        //设置文字选中时的颜色
+        tabs.setSelectedTextColor(Color.parseColor("#CC0000"));
         // 取消点击Tab时的背景色
         tabs.setTabBackground(0);
-//
-//
+//        tabs.setScrollOffset(10);
+
 //
     }
+
+
 
     @OnClick({R.id.search_estate_bar, R.id.to_other})
     public void onClick(View view) {

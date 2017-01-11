@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan">
         </activity>
         <activity android:name=".WelcomeActivity">
             <intent-filter>
@@ -25,23 +24,19 @@
         </activity>
         <activity
             android:name=".activity.CommunalActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".activity.AuthorInfoActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".activity.ColumnInfoActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity
-            android:name=".activity.SearchActivity"
-
-            >
+        <activity android:name=".activity.SearchActivity">
+        </activity>
+        <activity android:name=".activity.CountryCode">
         </activity>
     </application>
 

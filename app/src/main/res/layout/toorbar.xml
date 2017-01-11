@@ -1,34 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:id="@+id/tb"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <FrameLayout
+<merge>
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <ImageView
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_return"/>
-        <TextView
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="攻略详情"/>
-        <TextView
-            android:layout_marginRight="20dp"
-            android:layout_gravity="end"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="查看全集"/>
+        android:layout_height="wrap_content">
 
-    </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</LinearLayout>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_return"/>
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="title"
+                android:textColor="#000"/>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</merge>

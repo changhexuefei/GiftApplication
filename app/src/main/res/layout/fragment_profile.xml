@@ -67,12 +67,17 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <Spinner
+            <TextView
+                android:textSize="12sp"
+                android:text="+86"
+                android:drawablePadding="2dp"
+                android:drawableRight="@mipmap/blow"
+                android:id="@+id/country_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp">
 
-            </Spinner>
+            </TextView>
 
             <EditText
                 android:layout_width="250dp"
