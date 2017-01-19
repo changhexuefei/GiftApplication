@@ -23,71 +23,72 @@ import java.util.List;
 public class SelectionAdapter extends CommonAdapter<Selection.DataBean.ItemsBean> {
 
 
-    public SelectionAdapter(Context context, int layoutId, List<Selection.DataBean.ItemsBean> datas) {
-        super(context, layoutId, datas);
+    public SelectionAdapter(Context context, int layoutId, List<Selection.DataBean.ItemsBean> itemsBean) {
+        super(context, layoutId, itemsBean);
     }
 
     @Override
     protected void convert(ViewHolder holder, final Selection.DataBean.ItemsBean itemsBean, int position) {
+        if (itemsBean != null && !itemsBean.equals("")) {
+            holder.setText(R.id.nickname, itemsBean.getAuthor().getNickname())
+                    .setText(R.id.introduction, itemsBean.getAuthor().getIntroduction())
+                    .setText(R.id.title, itemsBean.getTitle())
+                    .setText(R.id.content_introduction, itemsBean.getIntroduction())
+                    .setText(R.id.likes_count, String.valueOf(itemsBean.getLikes_count()));
+            if (itemsBean.getColumn() != null && !itemsBean.getColumn().equals("")) {
+                holder.setText(R.id.column_title, itemsBean.getColumn().getTitle());
+            } else {
+                holder.getView(R.id.tv).setVisibility(View.GONE);
+                holder.getView(R.id.column_title).setVisibility(View.GONE);
+            }
+            Glide.with(MyApp.getContext()).load(itemsBean.getCover_image_url())
+                    .into((ImageView) holder.getView(R.id.cover_image_url));
+            Glide.with(MyApp.getContext()).load(itemsBean.getAuthor().getAvatar_url())
+                    .into((ImageView) holder.getView(R.id.author_icon));
+            holder.getView(R.id.cover_image_url).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.show(MyApp.getContext(), "你好", Toast.LENGTH_LONG);
+                    jumpToPage(itemsBean);
+                }
+            });
+            holder.getView(R.id.title).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.show(MyApp.getContext(), "标题", Toast.LENGTH_LONG);
+                    jumpToPage(itemsBean);
+                }
+            });
+            holder.getView(R.id.content_introduction).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.show(MyApp.getContext(), "内容", Toast.LENGTH_LONG);
+                    jumpToPage(itemsBean);
 
-        holder.setText(R.id.nickname, itemsBean.getAuthor().getNickname())
-                .setText(R.id.introduction, itemsBean.getAuthor().getIntroduction())
-                .setText(R.id.title, itemsBean.getTitle())
-                .setText(R.id.content_introduction, itemsBean.getIntroduction())
-                .setText(R.id.likes_count, String.valueOf(itemsBean.getLikes_count()));
-        if (itemsBean.getColumn() != null && !itemsBean.getColumn().equals("")) {
-            holder.setText(R.id.column_title, itemsBean.getColumn().getTitle());
-        } else {
-            holder.getView(R.id.tv).setVisibility(View.GONE);
-            holder.getView(R.id.column_title).setVisibility(View.GONE);
+                }
+            });
+            holder.getView(R.id.author_icon).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.show(mContext, "头像", Toast.LENGTH_LONG);
+                    getAuthorInfo(itemsBean);
+
+                }
+            });
+            holder.getView(R.id.column_title).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    jumpToColumnPage(itemsBean);
+
+                }
+            });
+            holder.getView(R.id.likes_count).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    jumpToPage(itemsBean);
+                }
+            });
         }
-        Glide.with(MyApp.getContext()).load(itemsBean.getCover_image_url())
-                .into((ImageView) holder.getView(R.id.cover_image_url));
-        Glide.with(MyApp.getContext()).load(itemsBean.getAuthor().getAvatar_url())
-                .into((ImageView) holder.getView(R.id.author_icon));
-        holder.getView(R.id.cover_image_url).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.show(MyApp.getContext(), "你好", Toast.LENGTH_LONG);
-                jumpToPage(itemsBean);
-            }
-        });
-        holder.getView(R.id.title).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.show(MyApp.getContext(), "标题", Toast.LENGTH_LONG);
-                jumpToPage(itemsBean);
-            }
-        });
-        holder.getView(R.id.content_introduction).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.show(MyApp.getContext(), "内容", Toast.LENGTH_LONG);
-                jumpToPage(itemsBean);
-
-            }
-        });
-        holder.getView(R.id.author_icon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.show(mContext, "头像", Toast.LENGTH_LONG);
-                getAuthorInfo(itemsBean);
-
-            }
-        });
-        holder.getView(R.id.column_title).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jumpToColumnPage(itemsBean);
-
-            }
-        });
-        holder.getView(R.id.likes_count).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jumpToPage(itemsBean);
-            }
-        });
 
     }
 

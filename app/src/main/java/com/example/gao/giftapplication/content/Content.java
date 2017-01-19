@@ -19,6 +19,6 @@ public class Content {
     public static  final String MOE ="http://api.liwushuo.com/v2/channels/11/items_v2?gender=1&limit=20&offset=0&generation=1";
     public static  final String PRODUCTNAME="http://api.liwushuo.com/v2/item_categories/tree";
     public static  final String SEARCH="http://api.liwushuo.com/v2/search/hot_words";
-
+    public static  final String SELECTION = "http://api.liwushuo.com/v2/channels/100/items_v2?ad=2&gender=1&generation=1&limit=20&offset=0";
 
 }

@@ -1,13 +1,22 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.gao.giftapplication.fragment.StrategyFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.example.gao.giftapplication.fragment.StrategyFragment">
 
 
-    <TextView
+    <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView
+        android:clipToPadding="false"
+        android:id="@+id/strategy"
+        android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
-
-</FrameLayout>
+        android:layout_margin="6dp"
+        android:gravity="center_horizontal"
+        android:horizontalSpacing="2dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="2dp">
+    </com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView>
+</LinearLayout>

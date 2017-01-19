@@ -1,97 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="190dp">
+              android:layout_height="match_parent"
+
+              android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        app:indicator_height="8dp"
+        app:indicator_width="8dp"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+    </com.youth.banner.Banner>
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="6dp"
         android:background="#fae6e6"/>
-    <LinearLayout
 
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
+    <LinearLayout
+        style="@style/user_item_group">
+
         <TextView
-            android:gravity="center"
-            android:drawableTop="@drawable/gift"
             android:id="@+id/one"
-            android:text="0元礼物"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-        <view
+            style="@style/user_item"
+            android:drawableTop="@drawable/gift"
+            android:text="0元礼物"/>
+
+        <View
+            android:background="#e5e5e5"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"/>
+
         <TextView
             android:id="@+id/two"
+            style="@style/user_item"
             android:drawableTop="@drawable/gift"
-            android:gravity="center"
-            android:layout_weight="1"
+
             android:text="定制礼物"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-        <view
+            />
+
+        <View
+            android:background="#E5E5E5"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"/>
+
         <TextView
-            android:gravity="center"
-            android:drawableTop="@drawable/gift"
             android:id="@+id/there"
-            android:text="积分话题"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
+            style="@style/user_item"
+            android:drawableTop="@drawable/gift"
+            android:text="积分话题"/>
 
     </LinearLayout>
-    <view
+
+    <View
+        android:background="#E5E5E5"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"/>
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
+        style="@style/user_item_group">
+
         <TextView
-            android:gravity="center"
-            android:drawableTop="@drawable/gift"
             android:id="@+id/four"
-            android:text="巡店"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
-        <view
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"/>
-
-        <TextView
-            android:gravity="center"
+            style="@style/user_item"
             android:drawableTop="@drawable/gift"
-            android:text="一周精选"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/five"/>
+            android:text="巡店"/>
 
-        <view
+        <View
+            android:background="#E5E5E5"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"/>
+
         <TextView
-            android:gravity="center"
+            android:id="@+id/five"
+            style="@style/user_item"
+            android:drawableTop="@drawable/gift"
+
+            android:text="一周精选"/>
+
+        <View
+            android:background="#E5E5E5"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
             android:id="@+id/six"
+            style="@style/user_item"
             android:drawableTop="@drawable/gift"
-            android:text="福利活动"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
+            android:text="福利活动"/>
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="6dp"
         android:background="#fae6e6"/>
-
 
 
 </LinearLayout>
