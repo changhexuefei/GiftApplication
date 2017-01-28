@@ -19,8 +19,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.gao.giftapplication.R;
 import com.example.gao.giftapplication.activity.SearchActivity;
@@ -53,6 +59,18 @@ public class HomeFragment extends Fragment {
     EditText mSearchEstateBar;
     @BindView(R.id.to_other)
     ImageView mToOther;
+
+    @BindView(R.id.title_one)
+    LinearLayout mTitleOne;
+    @BindView(R.id.unfold)
+    ImageView mUnfold;
+    @BindView(R.id.upfold)
+    ImageView mUpfold;
+    @BindView(R.id.channel)
+    TextView mChannel;
+
+
+
     /**
      * PagerSlidingTabStrip的实例
      */
@@ -83,8 +101,8 @@ public class HomeFragment extends Fragment {
     private ScienceFragment sf;
     private SelectionFragment sef;
     private WonderfulFragment wf;
-
-
+    private ViewPager mPager;
+    private PopupWindow mPopupWindow;
 
 
     public HomeFragment() {
@@ -99,12 +117,12 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         dm = getResources().getDisplayMetrics();
-        ViewPager pager = (ViewPager) view.findViewById(R.id.sort_fragment);
+        mPager = (ViewPager) view.findViewById(R.id.sort_fragment);
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
-        pager.setOffscreenPageLimit(0);//设置ViewPager的缓存界面数,默认缓存为2
-        pager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
-        pager.setCurrentItem(0);
-        tabs.setViewPager(pager);
+        mPager.setOffscreenPageLimit(0);//设置ViewPager的缓存界面数,默认缓存为2
+        mPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
+        mPager.setCurrentItem(0);
+        tabs.setViewPager(mPager);
         setTabsValue();
 
         ButterKnife.bind(this, view);
@@ -124,9 +142,8 @@ public class HomeFragment extends Fragment {
         // 设置Tab底部线的高度
         tabs.setUnderlineHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, dm));
         // 设置Tab Indicator的高度
-        tabs.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, dm));
+        tabs.setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, dm));
         // 设置Tab标题文字的大小
-//        tabs.setTextSize(24);
         tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, dm));
         // 设置Tab Indicator的颜色
 
@@ -141,22 +158,67 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-    @OnClick({R.id.search_estate_bar, R.id.to_other})
+    @OnClick({R.id.search_estate_bar, R.id.to_other, R.id.unfold, R.id.upfold})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.search_estate_bar:
                 InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mSearchEstateBar.getWindowToken(), 0);
                 mSearchEstateBar.setInputType(InputType.TYPE_NULL);
-                Intent intent = new Intent(getActivity(),SearchActivity.class);
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
 
                 break;
             case R.id.to_other:
                 break;
+            case R.id.unfold:
+                showPopupWindow();
+
+                break;
+            case R.id.upfold:
+                packUpPopupWindow();
+                break;
+
+
         }
     }
+
+    private void packUpPopupWindow() {
+        tabs.setVisibility(View.VISIBLE);
+        mUnfold.setVisibility(View.VISIBLE);
+        mUpfold.setVisibility(View.GONE);
+        mChannel.setVisibility(View.GONE);
+        mPopupWindow.dismiss();
+
+
+    }
+
+
+    private void showPopupWindow() {
+        tabs.setVisibility(View.INVISIBLE);
+        mUnfold.setVisibility(View.GONE);
+        mUpfold.setVisibility(View.VISIBLE);
+        mChannel.setVisibility(View.VISIBLE);
+        View popupView = View.inflate(getActivity(), R.layout.item_pop, null);
+        mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.showAsDropDown(tabs);
+        GridView gv = (GridView) popupView.findViewById(R.id.item_pop_gv);
+
+        mPopupWindow.setBackgroundDrawable(getResources().getDrawable(android.R.color.white));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.item_pop_text, mTitles);
+        gv.setAdapter(adapter);
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mPager.setCurrentItem(position);
+                packUpPopupWindow();
+            }
+        });
+
+    }
+
 
     public class MyPagerAdapter extends FragmentStatePagerAdapter {
 

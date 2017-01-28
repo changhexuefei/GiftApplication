@@ -1,14 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:focusable="true"
               android:focusableInTouchMode="true"
               android:orientation="vertical"
               tools:context="com.example.gao.giftapplication.view.HomeFragment">
 
     <LinearLayout
+        android:id="@+id/title_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -27,13 +28,13 @@
             android:layout_height="30dp"
             android:layout_marginLeft="16dp"
             android:background="@drawable/search_box_shape"
+            android:cursorVisible="false"
             android:gravity="center"
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:singleLine="true"
             android:textCursorDrawable="@null"
-            android:cursorVisible="false"
             android:textSize="14sp"/>
 
         <ImageView
@@ -44,10 +45,48 @@
             android:src="@mipmap/icon_gift_send_remind"/>
     </LinearLayout>
 
-    <com.example.gao.giftapplication.model.PagerSlidingTabStrip
-        android:id="@+id/tabs"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.gao.giftapplication.model.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginRight="40dp">
+        </com.example.gao.giftapplication.model.PagerSlidingTabStrip>
+
+        <TextView
+            android:id="@+id/channel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="切换频道"
+            android:textSize="13sp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/unfold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@mipmap/arrow_index_down"/>
+
+        <ImageView
+            android:id="@+id/upfold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@mipmap/arrow_index_up"
+            android:visibility="gone"/>
+
+
+    </FrameLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/sort_fragment"

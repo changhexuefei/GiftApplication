@@ -43,6 +43,8 @@ public class SelectionAdapter extends CommonAdapter<Selection.DataBean.ItemsBean
             }
             Glide.with(MyApp.getContext()).load(itemsBean.getCover_image_url())
                     .into((ImageView) holder.getView(R.id.cover_image_url));
+
+
             Glide.with(MyApp.getContext()).load(itemsBean.getAuthor().getAvatar_url())
                     .into((ImageView) holder.getView(R.id.author_icon));
             holder.getView(R.id.cover_image_url).setOnClickListener(new View.OnClickListener() {

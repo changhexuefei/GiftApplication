@@ -124,6 +124,7 @@ public class SelectionFragment extends Fragment implements View.OnClickListener 
                 mSelectionLR.setHasFixedSize(true);
                 mSelectionLR.setItemAnimator(new DefaultItemAnimator());
                 adapter = new LRecyclerViewAdapter(mAdapter);
+//                adapter.setRefreshHeader(new ArrowRefreshHeader(MyApp.getContext()));
 
 //                mSelectionLR.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
 //                mSelectionLR.setArrowImageView(R.drawable.iconfont_downgrey);

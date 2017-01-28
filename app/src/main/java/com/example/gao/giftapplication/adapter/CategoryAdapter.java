@@ -19,10 +19,13 @@ import java.util.List;
 
 public class CategoryAdapter extends BaseAdapter implements StickyGridHeadersSimpleAdapter {
     private List<Category.DataBean.ChannelGroupsBean> mCategories;
+    private List<Category.DataBean.ChannelGroupsBean.ChannelsBean> mChannelsBeen;
+
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public CategoryAdapter(Context context) {
+    public CategoryAdapter(Context context,List<Category.DataBean.ChannelGroupsBean.ChannelsBean> mChannelsBeen) {
+       this.mChannelsBeen=mChannelsBeen;
         mContext = context;
         this.mInflater=LayoutInflater.from(context);
     }
@@ -59,12 +62,12 @@ public class CategoryAdapter extends BaseAdapter implements StickyGridHeadersSim
 
     @Override
     public int getCount() {
-        return mCategories.size();
+        return mChannelsBeen.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mCategories.get(position);
+        return mChannelsBeen.get(position);
     }
 
     @Override
@@ -85,7 +88,7 @@ public class CategoryAdapter extends BaseAdapter implements StickyGridHeadersSim
             holder = (ItemViewHolder) convertView.getTag();
 
         }
-        Glide.with(MyApp.getContext()).load(mCategories.get(0).getChannels().get(position).getIcon_url()).into(holder.iv_icon);
+        Glide.with(MyApp.getContext()).load(mChannelsBeen.get(position).getCover_image_url()).into(holder.iv_icon);
 
         return convertView;
     }
